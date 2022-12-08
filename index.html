@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSRP Interactive</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Tabs D - S - R - P - RDS -->
+    <section>
+        <div class="taco">
+            <button id="d-btn" onclick="dState()">
+                D
+            </button>
+            <button id="s-btn" onclick="sState()">
+                S
+            </button>
+            <button id="r-btn" onclick="rState()">
+                R
+            </button>
+            <button id="p-btn" onclick="pState()">
+                P
+            </button>
+            <button id="rds-btn" onclick="rdsState()">
+                RDS
+            </button>
+        </div>
+    </section>
+
+    <!-- Actual place -->
+    <section>
+        <div id="place" class="tac">
+            <h1 style="color:#dc3e29">Distintion (identity-other)</h1>
+        </div>
+    </section>
+
+    <!-- Sliders -->
+    <section>
+        <div id="slider-tab1" class="slider-container">
+            <div>1</div>
+            <input type="range" id="slider" min="1" max="4" value="1" class="slider">
+            <div>4</div>
+        </div>
+        <div id="slider-tab2" class="slider-container" style="display: none;">
+            <div>0</div>
+            <input type="range" id="slider2" min="0" max="3" value="" class="slider">
+            <div>3</div>
+        </div>
+        <div id="slider-tab3" class="slider-container tac" style="display: none;">
+            <div>no links</div>
+            <input type="range" id="slider3" min="1" max="4" value="0" class="slider">
+            <div>all links</div>
+        </div>
+        <div id="slider-tab5" class="slider-container tac" style="display: none;">
+            <div>simple</div>
+            <input type="range" id="slider5" min="1" max="4" value="0" class="slider">
+            <div>complex</div>
+        </div>
+        <div style="text-align: center;">
+            <span id="slider-output"></span>
+            <span id="slider-output-end"></span>
+        </div>
+    </section>
+
+    <!-- Circles -->
+    <section>
+        <div id="circles-playground">
+
+            <div id="p1" class="tac">
+                <div id="group1" class="circle-group-top">
+                    <div id="bubble1" class="bubble bubble-bottom" style="display:none;">
+                        <div>
+                            <div id="lc1-1" class="little-circle"></div>
+                        </div>
+                        <div id="lc1-2" style="display:none;" class="little-circle"></div>
+                        <div id="lc1-3" style="display:none;" class="little-circle"></div>
+                    </div>
+                    <div id="bc1" class="big-circle" alt="1" onclick="bcClick(this.id)">
+                        <div>i<sub>1</sub></div>
+                    </div>
+                </div>
+
+                <div id="group2" class="circle-group-top" style="display:none">
+                    <div id="bubble2" class="bubble bubble-bottom" style="display:none;">
+                        <div>
+                            <div id="lc2-1" style="display:none;" class="little-circle"></div>
+                        </div>
+                        <div id="lc2-2" style="display:none;" class="little-circle"></div>
+                        <div id="lc2-3" style="display:none;" class="little-circle"></div>
+                    </div>
+                    <div id="bc2" class="big-circle" alt="2" style="display:none" onclick="bcClick(this.id)">
+                        <div>i<sub>2</sub></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="p2" class="tac">
+                <div id="group3" class="circle-group" style="display:none">
+                    <div id="bubble3" class="bubble bubble-top" style="display:none;">
+                        <div>
+                            <div id="lc3-1" style="display:none;" class="little-circle"></div>
+                        </div>
+                        <div id="lc3-2" style="display:none;" class="little-circle"></div>
+                        <div id="lc3-3" style="display:none;" class="little-circle"></div>
+                    </div>
+                    <div id="bc3" class="big-circle" alt="3" style="display:none" onclick="bcClick(this.id)">
+                        <div>i<sub>2</sub></div>
+                    </div>
+                </div>
+                <div id="group4" class="circle-group" style="display:none">
+                    <div id="bubble4" class="bubble bubble-top" style="display:none;">
+                        <div>
+                            <div id="lc4-1" style="display:none;" class="little-circle"></div>
+                        </div>
+                        <div id="lc4-2" style="display:none;" class="little-circle"></div>
+                        <div id="lc4-3" style="display:none;" class="little-circle"></div>
+                    </div>
+                    <div id="bc4" class="big-circle" alt="4" style="display:none" onclick="bcClick(this.id)">
+                        <div>i<sub>4</sub></div>
+                    </div>
+                </div>
+            </div>
+            <!-- tab RDS -->
+            <div id="p3" class="tac-d" style="display:none">
+                <div id="groupd1" class="circle-group" style="display:none">
+                    <div id="bcd1" class="big-circle-d" alt="d1">
+                        <div>i<sub>1</sub></div>
+                    </div>
+                </div>
+                <div id="groupd2" class="circle-group" style="display:none">
+                    <div id="bubbled" class="bubble-d bubble-top-d" style="display:none;">
+                        <div>
+                            <div id="lcd-1" class="little-circle bc-green"><div>p<sub>1</sub></div></div>
+                        </div>
+                        <div id="lcd-2" class="little-circle bc-green"><div>p<sub>2</sub></div></div>
+                        <div id="lcd-3" class="little-circle bc-green"><div>p<sub>3</sub></div></div>
+                    </div>
+                    <div id="bcd2" class="big-circle-d" alt="d2">
+                        <div>R</div>
+                    </div>
+                </div>
+                <div id="groupd3" class="circle-group" style="display:none">
+                    <div id="bcd3" class="big-circle-d" alt="d3">
+                        <div>i<sub>2</sub></div>
+                    </div>
+                </div>
+            </div>
+            <!-- / tab RDS -->
+        </div>
+    </section>
+
+    <!-- Paragraphs for describing things -->
+    <section>
+        <!-- Tab 1 Interactive -->
+        <div class="description" id="d1">
+            Tab 1, Interactive<br />
+            - This is where you can make the tab interactive<br />
+            <br />
+            <br />
+            <br />
+            <br />
+        </div>
+        
+    </section>
+
+    <script src="scripts/leader-line/leader-line.min.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+
+</html>
